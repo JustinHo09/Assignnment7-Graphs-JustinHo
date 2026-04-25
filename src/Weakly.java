@@ -12,12 +12,15 @@ public class Weakly {
 
     public static boolean isWeakly(int [][] adjMatrix){
 
+        // O(1) just assignment adn integers are fixed values
         int n = adjMatrix.length;
         if(n<=1){
             return true;
         }
 
+        // Will be O(n) in space
         Stack<Integer> vertecies = new Stack<>();
+        // S(n)
         boolean [] visited = new boolean[n];
 
         // Count how many nodes are visited, should be all
@@ -28,6 +31,8 @@ public class Weakly {
         visited[0] = true;
         count++;
 
+        // O(n^2) becuase while runs n times to visit all verticies,
+        // the for loop will always loop n times.
         int v;
         while(!vertecies.isEmpty()){
             v = vertecies.pop();
