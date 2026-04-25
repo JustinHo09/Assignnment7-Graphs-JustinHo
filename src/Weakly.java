@@ -7,6 +7,15 @@ public class Weakly {
                             {0,1,0}};
         System.out.println("Weakly Connected: "+ isWeakly(matrix));
 
+        int [][] matrix2 = {{0,1,0},
+                            {0,0,1},
+                            {0,0,0}};
+        System.out.println("Weakly Connected: "+ isWeakly(matrix2));
+
+        int [][] matrix3 = {{0,1,0},
+                            {0,0,0},
+                            {0,0,1}};
+        System.out.println("Weakly Connected: "+ isWeakly(matrix3));
 
     }
 
@@ -40,7 +49,7 @@ public class Weakly {
             // Check each row and its mirror for a connection, which will add all adjacent
             // verticies for the vertex represented by the row of index v
             for(int i=0; i<n; i++){
-                if(!visited[i] && (adjMatrix[v][i] == 1 || adjMatrix[i][v] == 1)){
+                if(!visited[i] && (adjMatrix[v][i] != 0 || adjMatrix[i][v] != 0)){
                     count++;
                     visited[i] = true;
                     vertecies.push(i);
