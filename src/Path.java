@@ -7,6 +7,19 @@ public class Path {
                          {1,0,0,0}
         };
         printCycle(input);
+
+        int[][] input2 = {{0,1,0,0},
+                {0,0,1,0},
+                {0,0,0,1},
+                {0,0,0,0}
+        };
+        printCycle(input2);
+
+        int[][] input3 = {{0,1,0},
+                {0,0,1},
+                {0,0,0},
+        };
+        printCycle(input3);
     }
 
     public static void printCycle(int[][] matrix){
@@ -14,6 +27,7 @@ public class Path {
             System.out.println("No cycle length of 4 exists");
             return;
         }
+        boolean cycle = false;
         int n  = matrix.length;
         // For all conditions it cannot point to itself otherwise length != 4 for that path,
         // Furthurmore for this path they cannot point to any previous 1, otherwise
@@ -32,6 +46,7 @@ public class Path {
                                     if(matrix[v4][v1] != 0){
                                         System.out.println("Cycle(vertice's index): " + v1 + " -> " + v2 +
                                                 " -> " + v3 + " -> " + v4 + " -> " + v1);
+                                        cycle = true;
                                     }
                                 }
                             }
@@ -40,10 +55,8 @@ public class Path {
                 }
             }
         }
-
-
-
-
-
+        if(!cycle){
+            System.out.println("No cycle length of 4 exists");
+        }
     }
 }
