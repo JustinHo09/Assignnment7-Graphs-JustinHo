@@ -1,4 +1,4 @@
-import java.util.Stack;
+import java.util.LinkedList;
 public class Weakly {
 
     public static void main(String[] args){
@@ -28,7 +28,7 @@ public class Weakly {
         }
 
         // Will be O(n) in space
-        Stack<Integer> vertecies = new Stack<>();
+        LinkedList<Integer> vertecies = new LinkedList<>();
         // S(n)
         boolean [] visited = new boolean[n];
 
@@ -36,7 +36,7 @@ public class Weakly {
         int count=0;
 
         // Do a DFS traversal
-        vertecies.push(0);
+        vertecies.addFirst(0);
         visited[0] = true;
         count++;
 
@@ -44,7 +44,7 @@ public class Weakly {
         // the for loop will always loop n times.
         int v;
         while(!vertecies.isEmpty()){
-            v = vertecies.pop();
+            v = vertecies.remove();
 
             // Check each row and its mirror for a connection, which will add all adjacent
             // verticies for the vertex represented by the row of index v
@@ -52,7 +52,7 @@ public class Weakly {
                 if(!visited[i] && (adjMatrix[v][i] != 0 || adjMatrix[i][v] != 0)){
                     count++;
                     visited[i] = true;
-                    vertecies.push(i);
+                    vertecies.addFirst(i);
                 }
             }
         }
