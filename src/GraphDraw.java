@@ -6,7 +6,7 @@ public class GraphDraw {
     }
 
     public static void draw(String s){
-        if(s == null || s.equals("")){
+        if(s == null || s.length() ==  0 || s.charAt(0) == ' '){
             return;
         }
 
@@ -16,6 +16,10 @@ public class GraphDraw {
             if(s.charAt(i) == ' '){
                 spaceCount++;
             }
+        }
+
+        if(spaceCount == s.length()){
+            return;
         }
         //O(n)
         // Fill array with each string separated by space
@@ -53,7 +57,8 @@ public class GraphDraw {
 
         //O(n)
         for(int i=0; i< n; i++){
-            System.out.print("\t\t" + verticies[i]);
+            System.out.print("\t\t");
+            System.out.print(verticies[i]);
         }
 
         System.out.print("\n");
@@ -61,7 +66,8 @@ public class GraphDraw {
         for(int i=0; i<n;i++){
             System.out.print(verticies[i]);
             for(int j=0;j<n;j++){
-                System.out.print("\t\t"+adjMatrix[i][j]);
+                System.out.print("\t\t");
+                System.out.print(adjMatrix[i][j]);
             }
             System.out.print("\n");
         }
